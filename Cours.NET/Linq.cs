@@ -29,10 +29,10 @@ class LinqClass
         // Retourne un nouveau tableau ou la fonction passée en paramètre a été appliquée a chaque élément
         list.Select(article => article.Price * article.Taxe);
 
-        list.Where(article => article.Price > 0) // On ne veut pas calculer le prix des object qui sont egal a 0
-            .Prepend(new() { Id = 0, Price = 5F, Taxe = 25F, Name = "Assurance" }) // On ajoute l'assurance
-            .OrderByDescending(article => article.Price) // on ordone la facture par ordre decroissant de prix
-            .ThenBy(article => article.Id); // et si 2 objet on le même prix, alors par Id
+list.Where(article => article.Price > 0) // On ne veut pas calculer le prix des object qui sont egal a 0
+    .Prepend(new() { Id = 0, Price = 5F, Taxe = 25F, Name = "Assurance" }) // On ajoute l'assurance
+    .OrderByDescending(article => article.Price) // on ordone la facture par ordre decroissant de prix
+    .ThenBy(article => article.Id); // et si 2 objet on le même prix, alors par Id
 
         // Montant total de la facture
         var total = list.Sum(article => article.Price * article.Taxe / 100F);

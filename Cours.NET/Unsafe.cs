@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 class UnsafeClass
 {
@@ -57,5 +58,20 @@ class UnsafeClass
         }
         stopwatch.Stop();
         Console.WriteLine($"unsafe time: {stopwatch.Elapsed}");
+
+        Console.Out.WriteLine(String.Join(" ", UnsafeMethod(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 })));
+    }
+
+    public static unsafe byte[] UnsafeMethod(byte[] source)
+    {
+        byte[] newArr = new byte[5];
+        fixed (byte* ptr = source, newPtr = newArr)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                newPtr[i] = ptr[i];
+            }
+        }
+        return newArr;
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>UnsafeClass</StartupObject>
+    <StartupObject>CourDotNET.AsyncStreamClassReader</StartupObject>
     <AssemblyName>CourDotNET</AssemblyName>
     <RootNamespace>CourDotNET</RootNamespace>
   </PropertyGroup>

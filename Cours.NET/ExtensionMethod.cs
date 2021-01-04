@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 class AnyClass
 {
-
 }
 static class ExtensionMethodClass
 {

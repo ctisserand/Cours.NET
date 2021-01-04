@@ -10,18 +10,20 @@ class ThreadClass
 {
     public static void Main()
     {
-        /*
-        var t = new Thread(x =>
+
+        var thread = new Thread(x =>
         {
             int loop = x as int? ?? 5;
-            foreach(int i in Enumerable.Range(0, loop))
+            foreach (int i in Enumerable.Range(0, loop))
             {
                 Console.WriteLine(" -- [1] This is print from another thread");
                 Thread.Sleep(100);
             }
-            
+
         });
-        t.Start(10);
+        thread.IsBackground = true;
+        thread.Start(10);
+
 
         foreach (int i in Enumerable.Range(0, 10))
         {
@@ -30,7 +32,7 @@ class ThreadClass
         }
 
 
-        t.Join();
+        thread.Join();
 
 
         var task = new Task(() =>
@@ -67,6 +69,9 @@ class ThreadClass
             Thread.Sleep(100);
         }
 
+        CancellationTokenSource source = new();
+        CancellationToken token = source.Token;
+        token.Register(() => Console.Out.WriteLine("Tasks canceleled !!!"));
         var tasks = new List<Task>();
         tasks.Add(Task.Run(() =>
         {
@@ -75,7 +80,8 @@ class ThreadClass
                 Console.WriteLine(" -- [4 ] This is print from another thread");
                 Thread.Sleep(100);
             }
-        }));
+        }, token));
+
         tasks.Add(Task.Run(() =>
         {
             foreach (int i in Enumerable.Range(0, 5))
@@ -83,10 +89,13 @@ class ThreadClass
                 Console.WriteLine(" -- [ 5] This is print from another thread");
                 Thread.Sleep(100);
             }
-        }));
+        }, token));
+        source.CancelAfter(1000);
 
-        Task.WaitAll(tasks.ToArray());
-        */
+
+        Task.WaitAny(tasks.ToArray(), token);
+
+        Console.Out.WriteLine("Wait for all Task");
 
         var mtask = AnyProcessing();
 
@@ -103,7 +112,7 @@ class ThreadClass
         stopwatch.Start();
         Parallel.ForEach(Enumerable.Range(0, 30), new ParallelOptions { MaxDegreeOfParallelism = 30 }, x =>
         {
-            Console.WriteLine($" ** [{x}] This is print from the main thread");
+            Console.WriteLine($" ** [{x}] This is print from a thread");
             Thread.Sleep(1000);
         });
         stopwatch.Stop();
