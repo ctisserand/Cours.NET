@@ -71,7 +71,7 @@ public int ReadOnlyProperty
 
     }
 
-    public void Call()
+    public static void Main()
     {
         var mc = new PropertyClass() { MyProperty = 5 };
         var mc2 = new PropertyClass("stringParam") { MyProperty = 5 };

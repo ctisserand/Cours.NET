@@ -9,7 +9,7 @@ class DelegateClass
 
     public bool DelegateFunction(int x, int y) { return x == y; }
 
-    public static void Call()
+    public static void Main()
     {
         DelegateClass delegateClass = new DelegateClass();
 
@@ -28,7 +28,7 @@ class DelegateFuncClass
 
     public bool DelegateFunction(int x, int y) { return x == y; }
 
-    public static void Call()
+    public static void Main()
     {
         DelegateFuncClass delegateClass = new DelegateFuncClass();
 

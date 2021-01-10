@@ -9,7 +9,7 @@ class LambdaDelegateClass
         func(1, 2);
     }
 
-    public static void Call()
+    public static void Main()
     {
         LambdaDelegateClass lambdaDelegate = new LambdaDelegateClass();
 
@@ -32,7 +32,7 @@ class LambdaFuncClass
 {
     public void Function(Func<int, bool> func) { func(1); }
 
-    public static void Call()
+    public static void Main()
     {
         LambdaFuncClass lambdaDelegate = new LambdaFuncClass();
 

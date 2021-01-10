@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CSharp.RuntimeBinder;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -9,6 +10,7 @@ class DynamicClass : DynamicObject
 {
     public override bool TryInvoke(InvokeBinder binder, object[] args, out object result)
     {
+        // Do Something
         result = "You call dynamicClass()";
         return true;
     }
@@ -31,8 +33,20 @@ class DynamicClass : DynamicObject
         return base.TryGetMember(binder, out result);
     }
 
-    public static void Call()
+    public static void Main()
     {
+        dynamic dateTime = new System.DateTime();
+        dateTime.AddHours(1);
+        try
+        {
+            dateTime.AnyMethod(1);
+        }
+        catch(RuntimeBinderException e)
+        {
+            Console.Out.WriteLine("Excpeted Exception: ");
+            Console.Out.WriteLine(e);
+        }
+
         dynamic dynamicClass = new DynamicClass();
         Console.WriteLine(dynamicClass());
         Console.WriteLine(dynamicClass.test());
