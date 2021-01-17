@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:model="clr-namespace:WPF.Cours.NET.Models">
+    <DataTemplate x:Key="articleListDataTemplate" DataType="{x:Type model:Article}">
+        <TextBlock Text="{Binding Path=Name}" />
+    </DataTemplate>
+    <DataTemplate x:Key="articleDataTemplate" DataType="{x:Type model:Article}">
+        <StackPanel VerticalAlignment="Top">
+            <TextBlock Text="Article" />
+            <TextBox Text="{Binding Path=Name}" />
+            <TextBox Text="{Binding Path=Ammount}" />
+        </StackPanel>
+    </DataTemplate>
+    
+</ResourceDictionary>
