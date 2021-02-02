@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF.Cours.NET.UserControls
+namespace WPF.Cours.NET.Pages
 {
     /// <summary>
-    /// Interaction logic for ArticleUserControl.xaml
+    /// Interaction logic for Page2.xaml
     /// </summary>
-    public partial class ArticleUserControl : UserControl
+    public partial class Page2 : Page
     {
-        public ArticleUserControl()
+        public Page2()
         {
             InitializeComponent();
         }

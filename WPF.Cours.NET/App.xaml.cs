@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WPF.Cours.NET.Models;
 
 namespace WPF.Cours.NET
 {
@@ -13,5 +14,9 @@ namespace WPF.Cours.NET
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var a = PageModel.Instance;
+        }
     }
 }
