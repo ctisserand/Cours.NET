@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:model="clr-namespace:WpfApp1.ViewModel">
+    <DataTemplate x:Key="articleDataTemplate" DataType="{x:Type model:Book}">
+        <TextBox Text="{Binding Path=Titre}" />
+    </DataTemplate>
+</ResourceDictionary>
