@@ -4,7 +4,7 @@ using CustomName = System.Math;
 using AnotherName = System;
 
 
-namespace CourDotNET
+namespace NamespaceExample
 {
     class NamespaceClass
     {
