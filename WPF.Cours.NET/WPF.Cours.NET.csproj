@@ -2,18 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>WPF.Cours.NET</AssemblyName>
     <RootNamespace>WPF.Cours.NET</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="PropertyChanged.Fody" Version="3.3.1">
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>

@@ -23,7 +23,7 @@ class NullableClass
             // vérifiez toujours que l'index est bien dans les limites du tableau
             k = notnullarray?[1]?.K;
         }
-        catch(IndexOutOfRangeException e)
+        catch (IndexOutOfRangeException e)
         {
             Console.WriteLine("L'index n'existe pas dans le tableau");
         }
@@ -36,8 +36,8 @@ class NullableClass
         //Nullable<int> nullableNumber = null;
         int? nullableNumber = null;
         if (nullableNumber.HasValue) Console.WriteLine("HasValue");
-        if(nullableNumber == null) Console.WriteLine("null");
-        if(nullableNumber == 0) Console.WriteLine("== 0");
+        if (nullableNumber == null) Console.WriteLine("null");
+        if (nullableNumber == 0) Console.WriteLine("== 0");
 
         int number = nullableNumber ?? 0;
 

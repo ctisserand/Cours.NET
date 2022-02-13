@@ -54,13 +54,14 @@ class Overload
         return 0;
     }
 
-    private Dictionary<string, float[]> dict = new (){ ["123"] = new float[10] };
+    private Dictionary<string, float[]> dict = new() { ["123"] = new float[10] };
     /// <summary>
     /// [] overload
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
-    public float this[string i, int j] {
+    public float this[string i, int j]
+    {
         get { return dict[i][j]; }
         set { dict[i][j] = value; }
     }

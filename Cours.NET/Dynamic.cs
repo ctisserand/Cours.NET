@@ -16,7 +16,7 @@ class DynamicClass : DynamicObject
     }
     public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
     {
-        if(binder.Name == "test")
+        if (binder.Name == "test")
         {
             result = "You call new dynamicClass.test()";
             return true;
@@ -41,7 +41,7 @@ class DynamicClass : DynamicObject
         {
             dateTime.AnyMethod(1);
         }
-        catch(RuntimeBinderException e)
+        catch (RuntimeBinderException e)
         {
             Console.Out.WriteLine("Excpeted Exception: ");
             Console.Out.WriteLine(e);

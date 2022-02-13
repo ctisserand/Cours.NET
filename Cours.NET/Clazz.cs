@@ -38,7 +38,8 @@ class BaseClass
     ~BaseClass() { }
 }
 
-abstract class AbstractClazz : BaseClass {
+abstract class AbstractClazz : BaseClass
+{
     public int k { get; set; }
     public AbstractClazz(String params1) : base(params1) { }
     public abstract int MyMethod(int x, int y);
@@ -51,7 +52,7 @@ interface IMyInterface
 {
     public sealed void DoSomething() { }
     public int MyProperty { get; }
-    string this[int index] {get;set; }
+    string this[int index] { get; set; }
     string this[int index, int index2] { get; set; }
 }
 
@@ -75,7 +76,8 @@ class ClazzDerived : AbstractClazz, IMyInterface
         return;
     }
 
-    public override int MyMethod(int x, int y) {
+    public override int MyMethod(int x, int y)
+    {
         return 0;
     }
 
@@ -89,10 +91,10 @@ class ClazzDerived : AbstractClazz, IMyInterface
         abstractClazz.MyVirtualMethod(); // -> From ClazzDerived.MyVirtualMethod
         abstractClazz.MyNotVirtualMethod(); // -> From AbstractClazz.MyNotVirtualMethod
 
-var list = new List<int>() { 1, 2, 3 };
-new Dictionary<String, int>() { ["123"] = 0 };
-List<ClazzDerived> myList = new();
-myList.Add(new());
+        var list = new List<int>() { 1, 2, 3 };
+        new Dictionary<String, int>() { ["123"] = 0 };
+        List<ClazzDerived> myList = new();
+        myList.Add(new());
 
         var a = new { astring = "content" };
     }

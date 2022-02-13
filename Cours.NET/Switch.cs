@@ -10,7 +10,8 @@ class SwitchClass
     public static void Main()
     {
         MyFlags e = MyFlags.C | MyFlags.D;
-        switch(e) {
+        switch (e)
+        {
             case var t when e.HasFlag(MyFlags.C | MyFlags.D) && !e.HasFlag(MyFlags.A | MyFlags.B):
                 Console.Out.WriteLine(t);
                 break;
@@ -30,7 +31,8 @@ class SwitchClass
         }
 
         string str = "2";
-        switch(str) {
+        switch (str)
+        {
             case "1":
                 Console.Out.WriteLine("Case 1");
                 break;

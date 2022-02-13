@@ -126,14 +126,15 @@ class ThreadClass
             var index = await AnyProcessing2();
             Console.WriteLine($" -- [{index} ] This is print from another thread");
             // await ou Task.Run au choix sinon la methode est éxécuter de facon synchrone
-            
+
         }
         return 1;
     }
 
     public static Task<int> AnyProcessing2()
     {
-        return Task.Run(() => {
+        return Task.Run(() =>
+        {
             Thread.Sleep(100);
             // await ou Task.Run au choix sinon la methode est éxécuter de facon synchrone
             return 1;

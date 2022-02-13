@@ -15,7 +15,7 @@ public class AnyClassToInspect
 
     private double PrivateMethod(double params3)
     {
-        Console.Out.WriteLine("Call private method"); 
+        Console.Out.WriteLine("Call private method");
         return params3;
     }
 }

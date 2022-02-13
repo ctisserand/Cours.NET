@@ -20,7 +20,7 @@ class TestClass
         Console.WriteLine($"new List<String>().GetType() == new List<int>().GetType() ? {new List<String>().GetType() == new List<int>().GetType()}");
     }
 }
-class GenericClass<T> where T: class, new()
+class GenericClass<T> where T : class, new()
 {
     public (T, V) MyMethod<V>(T t, V v) where V : struct
     {

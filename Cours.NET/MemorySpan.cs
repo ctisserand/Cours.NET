@@ -13,7 +13,7 @@ class MemorySpan
         {
             array[i] = i;
         }
-        
+
         var mem = new Memory<int>(array, 100, 10);
         Console.WriteLine($"Before value: {mem.Span[5]}");
         ModifyItem(mem.Span);
@@ -21,7 +21,7 @@ class MemorySpan
 
         //var mem = new Memory<int>(array, 100, 110);
 
-        Console.WriteLine($"Original array: {String.Join(",",array[100..110])}");
+        Console.WriteLine($"Original array: {String.Join(",", array[100..110])}");
     }
 
     public static void ModifyItem(Span<int> mem)
