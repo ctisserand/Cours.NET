@@ -38,10 +38,10 @@ class PropertyClass
     /// <summary>
     /// Personne ne peut modifier cette propriété
     /// </summary>
-public int ReadOnlyProperty
-{
-    get => _myProperty;
-}
+    public int ReadOnlyProperty
+    {
+        get => _myProperty;
+    }
 
     /// <summary>
     /// Cette propriété ne peut être modifié que par la class elle même

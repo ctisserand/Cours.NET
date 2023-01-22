@@ -10,7 +10,7 @@ class AnyClass
 }
 static class ExtensionMethodClass
 {
-    public static  int MyMethod(this AnyClass  params1, int params2)
+    public static int MyMethod(this AnyClass params1, int params2)
     {
         return params2;
     }

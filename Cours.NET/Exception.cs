@@ -20,7 +20,7 @@ class ExceptionClass : Exception
         {
             ExceptionClass.Raise();
         }
-        catch(ExceptionClass e)
+        catch (ExceptionClass e)
         {
             Console.Out.WriteLine("Excpected Exception");
             Console.Out.WriteLine(e);
@@ -30,7 +30,7 @@ class ExceptionClass : Exception
         {
             ExceptionClass.RaiseNotImplemented();
         }
-        catch (NotImplementedException e) when(firstCatch)
+        catch (NotImplementedException e) when (firstCatch)
         {
             Console.Out.WriteLine("Excpected Exception");
             Console.Out.WriteLine(e);

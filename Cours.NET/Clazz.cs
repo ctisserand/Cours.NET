@@ -38,7 +38,8 @@ class BaseClass
     ~BaseClass() { }
 }
 
-abstract class AbstractClazz : BaseClass {
+abstract class AbstractClazz : BaseClass
+{
     public int k { get; set; }
     public AbstractClazz(String params1) : base(params1) { }
     public abstract int MyMethod(int x, int y);
@@ -54,7 +55,7 @@ interface IMyInterface
     }
     public sealed void DoSomething() { }
     public int MyProperty { get; }
-    string this[int index] {get;set; }
+    string this[int index] { get; set; }
     string this[int index, int index2] { get; set; }
     static abstract void DoOther();
 
@@ -85,7 +86,8 @@ class ClazzDerived : AbstractClazz, IMyInterface, IMyInterface2<ClazzDerived>
         return;
     }
 
-    public override int MyMethod(int x, int y) {
+    public override int MyMethod(int x, int y)
+    {
         return 0;
     }
 
