@@ -107,3 +107,18 @@ class ExternalProperty
 
     }
 }
+
+class RequiredProperty
+{
+    public static void Main()
+    {
+        // new RequiredProperty(); // Invalide
+        new RequiredProperty() { MyProperty = 0, MyProperty2 = 2 };
+        new RequiredProperty() { MyProperty = 0, MyProperty2 = 2, MyPropertyNotRequired=3 };
+        // new RequiredProperty() { MyPropertyNotRequired = 3 }; // Invalide
+    }
+
+    public required int MyProperty { get; set; }
+    public required int MyProperty2 { get; init; }
+    public int MyPropertyNotRequired { get; set; }
+}

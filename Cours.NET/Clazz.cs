@@ -46,16 +46,26 @@ abstract class AbstractClazz : BaseClass {
     public void MyNotVirtualMethod() { Console.WriteLine("From AbstractClazz.MyNotVirtualMethod"); }
 }
 
-
 interface IMyInterface
 {
+    public void DoA()
+    {
+        // I can do anything here
+    }
     public sealed void DoSomething() { }
     public int MyProperty { get; }
     string this[int index] {get;set; }
     string this[int index, int index2] { get; set; }
+    static abstract void DoOther();
+
+}
+interface IMyInterface2<T> where T : IMyInterface2<T>
+{
+    static abstract T operator ++(T a);
+
 }
 
-class ClazzDerived : AbstractClazz, IMyInterface
+class ClazzDerived : AbstractClazz, IMyInterface, IMyInterface2<ClazzDerived>
 {
     public static void MyStaticMethod() { }
     public int MyProperty { get { return 0; } }
@@ -79,6 +89,16 @@ class ClazzDerived : AbstractClazz, IMyInterface
         return 0;
     }
 
+    public static void DoOther()
+    {
+        return;
+    }
+
+    public static ClazzDerived operator ++(ClazzDerived a)
+    {
+        return a;
+    }
+
     public static void Main()
     {
         ClazzDerived clazzDerived = new();
@@ -89,13 +109,17 @@ class ClazzDerived : AbstractClazz, IMyInterface
         abstractClazz.MyVirtualMethod(); // -> From ClazzDerived.MyVirtualMethod
         abstractClazz.MyNotVirtualMethod(); // -> From AbstractClazz.MyNotVirtualMethod
 
-var list = new List<int>() { 1, 2, 3 };
-new Dictionary<String, int>() { ["123"] = 0 };
-List<ClazzDerived> myList = new();
-myList.Add(new());
+        var list = new List<int>() { 1, 2, 3 };
+        new Dictionary<String, int>() { ["123"] = 0 };
+        List<ClazzDerived> myList = new();
+        myList.Add(new());
 
         var a = new { astring = "content" };
-    }
+
+        ClazzDerived.DoOther();
+        IMyInterface i = clazzDerived;
+        clazzDerived++;
+}
 }
 
 sealed class ClazzSealed
