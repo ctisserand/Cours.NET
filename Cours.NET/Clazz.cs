@@ -121,7 +121,16 @@ class ClazzDerived : AbstractClazz, IMyInterface, IMyInterface2<ClazzDerived>
         ClazzDerived.DoOther();
         IMyInterface i = clazzDerived;
         clazzDerived++;
-}
+
+
+        // New since c# 12
+        List<int> c12List = [1, 2, 3, 4, 5];
+        int[] c12Array = [6, 7, 8, 9, 10];
+        Span<int> c12Span = [11, 12, 13, 14, 15];
+        int[] c12NewArray = [..c12List, ..c12Array, ..c12Span];
+        Console.WriteLine(string.Join(", ",c12NewArray.Intersect(c12List)));
+        Console.WriteLine(string.Join(", ", c12NewArray.Intersect(c12Array)));
+    }
 }
 
 sealed class ClazzSealed
@@ -130,3 +139,14 @@ sealed class ClazzSealed
 }
 // Pas autorisé a cause du sealed de ClazzSealed
 // class ClazzSealed2 : ClazzSealed { }
+
+class BaseClass12(int size) : List<String>(size)
+{
+    int Size { get; init; } = size;
+    private int original_size = size;
+    static BaseClass12() { }
+
+    public BaseClass12(String params1) : this(Int32.Parse(params1)) { }
+
+    ~BaseClass12() { }
+}
