@@ -72,7 +72,7 @@ namespace WebApplication.Cours.NET
                 endpoints.MapRazorPages();
             });
             app.UseOpenApi();
-            app.UseSwaggerUi3();
+            app.UseSwaggerUi();
 
             using (var scope = app.ApplicationServices.CreateScope())
             {
