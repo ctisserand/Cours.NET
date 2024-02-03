@@ -51,5 +51,20 @@ class LinqClass
         list.Select(article => new { article.Id, article.Name }).Where(article => article.Id > 0);
 
         list.Select(article => new { Myid = article.Id * 100, YourName = article.Name }).Where(article => article.YourName == "Item1");
+
+
+        float? price = null;
+        float? taxe = null;
+        // Pensé bien a typer le retour car un IOrderedEnumerable<Article> est aussi un 
+        // Mais un IEnumerable<Article> n'est pas frocément un IOrderedEnumerable<Article> 
+
+        // Decommenté pour voir l'erreur
+        // IOrderedEnumerable<Article> newl = list.Where(article => article.Id == 1).OrderBy(article => article.Id);
+        IEnumerable<Article> newl = list.Where(article => article.Id == 1).OrderBy(article => article.Id);
+        if(price is not null)
+            newl = list.Where(article => article.Price >= price);
+        if(taxe is not null)
+            newl = list.Where(article => article.Taxe >= taxe);
+        newl.GroupBy(article => article.Taxe);
     }
 }

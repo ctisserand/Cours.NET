@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <StartupObject>LambdaFuncClass</StartupObject>
+    <StartupObject>All</StartupObject>
     <AssemblyName>CourDotNET</AssemblyName>
     <RootNamespace>CourDotNET</RootNamespace>
   </PropertyGroup>

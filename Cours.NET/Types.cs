@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,5 +43,23 @@ class TypesClass
 
         if (test == null && test.GetType() == typeof(Int32) && (test >= 1 || test <= 10)) { }
         if (test is not null and Int32 and (>= 1 or <= 10)) { }
+
+        List<object[]> ps = new List<object[]>();
+        for (int i = 0; i < 10; i++)
+            ps.Add(new object[] { i.ToString(), i, i%2 == 0 ? new Point(i,i) : i });
+
+        string res = "";
+        foreach(var p in ps)
+        {
+            res += p switch
+            {
+                [var a, > 2, Point { X: >1 }] => a,
+                [var a, > 2, > 0] => $"_",
+                _ => 0
+            };
+        }
+        // Les 3 permier objet sont ignorer (car p[1] <= 2) 
+        // 1 item sur 2 à un _ car p[2] n'est pas de type Point mais > 0
+        Console.WriteLine(res);
     }
 }

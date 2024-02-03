@@ -10,10 +10,10 @@ namespace NamespaceExample
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("Hello World!");
+            System.Console.WriteLine("Hello Namespace!");
 
             // grace a using System;
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Namespace!");
 
             System.Math.Max(0, 1);
             Math.Max(0, 1);
