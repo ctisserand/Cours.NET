@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.Cours.NET.Pages.Page1"
+             xmlns:model="clr-namespace:MAUI.Cours.NET.Models"
+             x:DataType="model:PageModel"
+             BindingContext="{model:PageModel}">
+    <Grid>
+        <Button Command="{Binding Path=GoTo}"
+                CommandParameter="OTHER"
+                Height="30"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Width="200"
+                Text="Start"/>
+    </Grid>
+</ContentPage>

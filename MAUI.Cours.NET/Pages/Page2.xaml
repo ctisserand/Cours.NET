@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.Cours.NET.Pages.Page2"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:model="clr-namespace:MAUI.Cours.NET.Models"
+             xmlns:converter="clr-namespace:MAUI.Cours.NET.Converters">
+    <ContentPage.Resources>
+        <model:ExampleModel x:Key="myDataSource" />
+        <model:ListModel x:Key="myListDataSource" />
+        <x:Static Member="model:PageModel.Instance"
+                  x:Key="navigation" />
+        <converter:BoolToTextConverter x:Key="BoolToTextConverter" />
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <toolkit:Expander IsExpanded="True">
+                <toolkit:Expander.Header>
+                    <Label Text="Classic DataBinding" />
+                </toolkit:Expander.Header>
+                <toolkit:Expander.Content>
+                    <VerticalStackLayout BindingContext="{StaticResource myDataSource}"
+                                         Padding="10,0,0,0"
+                                         WidthRequest="200">
+                        <Label Text="Title"
+                               FontSize="25"
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding DataExample}" />
+                        <Entry Text="{Binding TextExample, Mode=TwoWay}"
+                               Keyboard="Numeric" />
+                        <!-- ValidationRule OnlyDigits à implémenter côté C# (MAUI ne supporte pas ValidationRules en XAML) -->
+                        <HorizontalStackLayout>
+                            <Label Text="Saved value: " />
+                            <Label Text="{Binding TextExample}" />
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Button Text="Add 1"
+                                    Command="{Binding IncreaseValueCommand}"
+                                    IsEnabled="{Binding ButtonEnabled}"
+                                    Margin="0,10,0,0"
+                                    Padding="20,5" />
+                            <Button Command="{Binding ToogleIncreaseValueCommand}"
+                                    Margin="0,10,0,0"
+                                    Padding="20,5"
+                                    Text="{Binding ButtonEnabled, Converter={StaticResource BoolToTextConverter}}" />
+                            <!-- Créez un IValueConverter BoolToTextConverter pour gérer le texte Enable/Disable -->
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+            <!-- Expander : List DataBinding -->
+            <toolkit:Expander IsExpanded="True">
+
+                <toolkit:Expander.Header>
+                    <Label Text="List DataBinding" />
+                </toolkit:Expander.Header>
+                <toolkit:Expander.Content>
+                    <Grid ColumnDefinitions="*,5,*"
+                          BindingContext="{StaticResource myListDataSource}">
+                        <CollectionView Grid.Column="0" ItemTemplate="{StaticResource articleListDataTemplate}"
+                                        ItemsSource="{Binding Source={StaticResource myListDataSource}, Path=Articles}"
+                                        x:Name="articleList" SelectionMode="Single">
+                        </CollectionView>
+                        <BoxView Grid.Column="1"
+                                 WidthRequest="5"
+                                 BackgroundColor="Gray" />
+                        <VerticalStackLayout Grid.Column="2"
+                                             Padding="10,0,0,0"
+                                             BindingContext="{x:Reference articleList}">
+                            <Label Text="Article sélectionné"
+                                   FontAttributes="Bold"
+                                   FontSize="20" />
+
+                            <!-- ICI : on ne lie plus une liste, mais uniquement SelectedItem -->
+                            <VerticalStackLayout BindingContext="{Binding SelectedItem}">
+                                <Label Text="Article" />
+                                <Entry Text="{Binding Name}" />
+                                <Entry Text="{Binding Ammount}" />
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Grid>
+                </toolkit:Expander.Content>
+            </toolkit:Expander>
+
+            <Button Text="Go Back"
+                    Command="{Binding Source={StaticResource navigation}, Path=GoBack}"
+                    HeightRequest="30"
+                    WidthRequest="100"
+                    Margin="0,20,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
