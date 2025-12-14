@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Cours.NET", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAUI.Cours.NET", "MAUI.Cours.NET\MAUI.Cours.NET.csproj", "{B6DCF30B-8923-4B3A-8B44-FDACA057A3FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.Cours.NET", "WPF.Cours.NET\WPF.Cours.NET.csproj", "{26ECC68B-1FC2-697B-13D4-D57046980393}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{B6DCF30B-8923-4B3A-8B44-FDACA057A3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6DCF30B-8923-4B3A-8B44-FDACA057A3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6DCF30B-8923-4B3A-8B44-FDACA057A3FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26ECC68B-1FC2-697B-13D4-D57046980393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26ECC68B-1FC2-697B-13D4-D57046980393}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26ECC68B-1FC2-697B-13D4-D57046980393}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26ECC68B-1FC2-697B-13D4-D57046980393}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

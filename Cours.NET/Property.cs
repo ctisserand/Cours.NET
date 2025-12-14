@@ -61,6 +61,29 @@ class PropertyClass
         init => _myProperty = value;
     }
 
+    public int Cs10Property
+    {
+        get => field;
+        set => field = value;
+    }
+
+    public int Cs10ReadOnlyProperty
+    {
+        get => field;
+    }
+
+    public int Cs10ReadOnlyPropertyPrivate
+    {
+        get => field;
+        private set => field = value;
+    }
+
+    public int Cs10ReadOnlyPropertyInit
+    {
+        get => field;
+        init => field = value;
+    }
+
     public PropertyClass()
     {
 
@@ -88,6 +111,9 @@ class PropertyClass
         mc.ReadOnlyProperty_Private = 3;
         result = mc.ReadOnlyProperty_Private;
 
+        mc.Cs10Property = 3;
+        result = mc.Cs10Property;
+
         // Pas autorisé
         // mc.ReadOnlyProperty_Init = 3;
         result = mc.ReadOnlyProperty_Init;
@@ -100,7 +126,7 @@ class ExternalProperty
     public static void Main()
     {
         var mc = new PropertyClass() { MyProperty = 5 };
-        mc = new PropertyClass() { ReadOnlyProperty_Init = 5 };
+        mc = new PropertyClass() { ReadOnlyProperty_Init = 5, Cs10ReadOnlyPropertyInit = 10 };
 
         // Pas autorisé
         // mc.ReadOnlyProperty_Private = 3;
@@ -114,7 +140,7 @@ class RequiredProperty
     {
         // new RequiredProperty(); // Invalide
         new RequiredProperty() { MyProperty = 0, MyProperty2 = 2 };
-        new RequiredProperty() { MyProperty = 0, MyProperty2 = 2, MyPropertyNotRequired=3 };
+        new RequiredProperty() { MyProperty = 0, MyProperty2 = 2, MyPropertyNotRequired = 3 };
         // new RequiredProperty() { MyPropertyNotRequired = 3 }; // Invalide
     }
 
